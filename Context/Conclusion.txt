@@ -1,0 +1,3 @@
+The EduGenie Learning Assistant successfully demonstrates the use of Generative AI in education by providing intelligent and personalized learning support. Using Google Gemini 1.5 Pro and LaMini-Flan-T5, the system efficiently performs Question Answering, Concept Explanation, Quiz Generation, Summarization, and Personalized Learning Recommendations.
+
+The project was developed using FastAPI, HTML, CSS, and Jinja2 with a modular architecture that ensured smooth frontend-backend integration, scalability, and maintainability. Through successful implementation, testing, and local deployment, EduGenie proved to be an effective AI-powered educational platform that enhances learning experiences and provides real-time academic assistance for students and self-learners.

@@ -1,0 +1,63 @@
+Description
+Before getting started with the EduGenie Learning Assistant project, ensure you have a basic understanding of Python programming, REST APIs, and fundamental concepts of Artificial Intelligence and Natural Language Processing (NLP). Familiarity with FastAPI, HTML, CSS, and working with APIs will be helpful for developing and integrating different modules of the application. Additionally, install Visual Studio Code (VS Code) or any preferred code editor for efficient coding and project management. Basic knowledge of Git and virtual environments is also recommended for dependency handling and version control.
+
+Python 3.10+
+
+Official Documentation: Google AI for Developers
+
+Installation Guide: Tom's Hardware
+
+Popular Tutorial: Python Programming Tutorial - Full Course for Beginners
+
+Installation Steps:
+
+Download the latest Python 3.10+ installer for your operating system from the official website.
+
+Run the installer and ensure you check the box that says "Add Python to PATH".
+
+Follow the installation prompts to complete the setup.
+
+Verify the installation by opening a terminal or command prompt and typing python --version.
+
+FastAPI Framework – 
+
+Official Documentation: FastAPI
+
+User Guide: FastAPI
+
+Popular Tutorial: FastAPI Crash Course
+
+HTML & CSS – Basic templating used in /templates and /static
+
+Google Gemini API Key
+
+Official Documentation: Google AI for Developers
+
+Setup Guide: GeeksforGeeks
+
+Popular Tutorial: How to Use Google Gemini API Key
+
+Setup Steps:
+
+Visit the Google AI Studio and sign in with your Google account.
+
+Create a new project and enable the Gemini API.
+
+Generate an API key and securely store it.
+
+Uvicorn (ASGI Server)
+
+Official Documentation: PyPI
+
+Installation Steps:
+
+Install Uvicorn using pip: pip install uvicorn
+
+Jinja2 (HTML Templating Engine)
+
+Official Documentation: Jinja2 Documentation
+
+Installation Steps:
+
+Install Jinja2 using pip: pip install jinja2
+

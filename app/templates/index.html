@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="EduGenie is an AI learning assistant for questions, explanations, quizzes, summaries, and learning paths."
+    />
+    <meta name="edugenie-api-base" content="" />
+    <title>EduGenie · Learning Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}" />
+    <script defer src="{{ url_for('static', path='/app.js') }}"></script>
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="EduGenie home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" role="img">
+            <path d="M10 9.5h14.5A5.5 5.5 0 0 1 30 15v15.5H15.5A5.5 5.5 0 0 1 10 25V9.5Z" />
+            <path d="M15 15h9M15 20h9M15 25h5" />
+            <path d="m27.5 7 .8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8.8-2.2Z" />
+          </svg>
+        </span>
+        <span>EduGenie</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#workspace">Workspace</a>
+        <a href="/docs">API Docs</a>
+        <span class="status-chip" id="api-status">
+          <span class="status-dot"></span>
+          Checking API
+        </span>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="eyebrow"><span>✦</span> Your thoughtful study companion</div>
+        <h1 id="hero-title">Turn curiosity into<br /><em>clear understanding.</em></h1>
+        <p>
+          Ask, explore, practise, and plan your next steps—all in one focused
+          learning space built to meet you where you are.
+        </p>
+        <a class="primary-link" href="#workspace">
+          Start learning
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+        </a>
+        <div class="hero-orbit" aria-hidden="true">
+          <div class="orbit-ring orbit-a"></div>
+          <div class="orbit-ring orbit-b"></div>
+          <span class="orbit-core">✦</span>
+          <span class="orbit-label label-one">Understand</span>
+          <span class="orbit-label label-two">Practise</span>
+          <span class="orbit-label label-three">Grow</span>
+        </div>
+      </section>
+
+      <section class="workspace" id="workspace" aria-labelledby="workspace-title">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">Learning workspace</p>
+            <h2 id="workspace-title">What would you like to do?</h2>
+          </div>
+          <p>Choose a tool, add your material, and let EduGenie shape the next step.</p>
+        </div>
+
+        <div class="tool-layout">
+          <div class="tool-tabs" role="tablist" aria-label="Learning tools">
+            <button class="tool-tab active" role="tab" aria-selected="true" aria-controls="panel-qa" id="tab-qa" data-tool="qa">
+              <span class="tool-icon">?</span><span><strong>Ask a question</strong><small>Get a clear, guided answer</small></span>
+            </button>
+            <button class="tool-tab" role="tab" aria-selected="false" aria-controls="panel-explain" id="tab-explain" data-tool="explain" tabindex="-1">
+              <span class="tool-icon">✦</span><span><strong>Explain a concept</strong><small>Make a difficult idea click</small></span>
+            </button>
+            <button class="tool-tab" role="tab" aria-selected="false" aria-controls="panel-quiz" id="tab-quiz" data-tool="quiz" tabindex="-1">
+              <span class="tool-icon">✓</span><span><strong>Generate a quiz</strong><small>Turn a passage into practice</small></span>
+            </button>
+            <button class="tool-tab" role="tab" aria-selected="false" aria-controls="panel-summary" id="tab-summary" data-tool="summary" tabindex="-1">
+              <span class="tool-icon">≡</span><span><strong>Summarize text</strong><small>Find the signal in the noise</small></span>
+            </button>
+            <button class="tool-tab" role="tab" aria-selected="false" aria-controls="panel-path" id="tab-path" data-tool="path" tabindex="-1">
+              <span class="tool-icon">↗</span><span><strong>Build a learning path</strong><small>Plan from here to mastery</small></span>
+            </button>
+          </div>
+
+          <div class="tool-stage">
+            <section class="tool-panel active" id="panel-qa" role="tabpanel" aria-labelledby="tab-qa" data-panel="qa">
+              <div class="panel-copy"><span class="panel-number">01</span><div><h3>Ask anything you're learning</h3><p>EduGenie will unpack the answer and show the thinking clearly.</p></div></div>
+              <form data-endpoint="/api/v1/qa" data-renderer="qa">
+                <label for="qa-question">Your question</label>
+                <textarea id="qa-question" name="question" minlength="3" maxlength="2000" required placeholder="For example: Why does the sky appear blue during the day?"></textarea>
+                <div class="form-footer"><span class="hint">Be specific for a more useful answer.</span><button type="submit">Get an answer <span>→</span></button></div>
+              </form>
+              <div class="result" aria-live="polite" hidden></div>
+            </section>
+
+            <section class="tool-panel" id="panel-explain" role="tabpanel" aria-labelledby="tab-explain" data-panel="explain" hidden>
+              <div class="panel-copy"><span class="panel-number">02</span><div><h3>Make a concept feel simple</h3><p>Choose your current level and get a step-by-step explanation.</p></div></div>
+              <form data-endpoint="/api/v1/explanations" data-renderer="text" data-result-key="explanation">
+                <label for="explain-topic">Topic or concept</label>
+                <input id="explain-topic" name="topic" minlength="2" maxlength="500" required placeholder="For example: Photosynthesis" />
+                <label for="audience-level">Explanation level</label>
+                <select id="audience-level" name="audience_level"><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option></select>
+                <div class="form-footer"><span class="hint">We'll include an example and a takeaway.</span><button type="submit">Explain it <span>→</span></button></div>
+              </form>
+              <div class="result" aria-live="polite" hidden></div>
+            </section>
+
+            <section class="tool-panel" id="panel-quiz" role="tabpanel" aria-labelledby="tab-quiz" data-panel="quiz" hidden>
+              <div class="panel-copy"><span class="panel-number">03</span><div><h3>Turn reading into recall</h3><p>Paste a passage and get three multiple-choice questions with feedback.</p></div></div>
+              <form data-endpoint="/api/v1/quizzes" data-renderer="quiz">
+                <label for="quiz-text">Source passage</label>
+                <textarea id="quiz-text" name="text" minlength="20" maxlength="20000" required placeholder="Paste the material you want to practise here..."></textarea>
+                <label for="question-count">Number of questions</label>
+                <select id="question-count" name="question_count" data-type="number">
+                  <option value="1">1 question</option><option value="2">2 questions</option><option value="3" selected>3 questions</option><option value="4">4 questions</option><option value="5">5 questions</option><option value="6">6 questions</option><option value="7">7 questions</option><option value="8">8 questions</option><option value="9">9 questions</option><option value="10">10 questions</option>
+                </select>
+                <div class="form-footer"><span class="hint">Choose between 1 and 10 questions.</span><button type="submit">Create quiz <span>→</span></button></div>
+              </form>
+              <div class="result quiz-result" aria-live="polite" hidden></div>
+            </section>
+
+            <section class="tool-panel" id="panel-summary" role="tabpanel" aria-labelledby="tab-summary" data-panel="summary" hidden>
+              <div class="panel-copy"><span class="panel-number">04</span><div><h3>Keep the ideas that matter</h3><p>Condense a long passage into a clear revision-ready summary.</p></div></div>
+              <form data-endpoint="/api/v1/summaries" data-renderer="text" data-result-key="summary">
+                <label for="summary-text">Text to summarize</label>
+                <textarea id="summary-text" name="text" minlength="30" maxlength="30000" required placeholder="Paste a longer article, lesson, or set of notes here..."></textarea>
+                <div class="form-footer"><span class="hint">We'll preserve the central facts.</span><button type="submit">Summarize <span>→</span></button></div>
+              </form>
+              <div class="result" aria-live="polite" hidden></div>
+            </section>
+
+            <section class="tool-panel" id="panel-path" role="tabpanel" aria-labelledby="tab-path" data-panel="path" hidden>
+              <div class="panel-copy"><span class="panel-number">05</span><div><h3>See the road ahead</h3><p>Get an ordered plan with concepts, activities, and resource ideas.</p></div></div>
+              <form data-endpoint="/api/v1/learning-paths" data-renderer="path">
+                <label for="path-topic">What do you want to learn?</label>
+                <input id="path-topic" name="topic" minlength="2" maxlength="500" required placeholder="For example: Python programming" />
+                <label for="path-level">Starting level</label>
+                <select id="path-level" name="level"><option value="beginner" selected>Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option><option value="all">All levels — beginner to advanced</option></select>
+                <div class="form-footer"><span class="hint">A practical path from your current level.</span><button type="submit">Build my path <span>→</span></button></div>
+              </form>
+              <div class="result path-result" aria-live="polite" hidden></div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="values" aria-label="EduGenie principles">
+        <article><span>01</span><h3>Clear by design</h3><p>Explanations shaped around your current understanding—not around jargon.</p></article>
+        <article><span>02</span><h3>Active, not passive</h3><p>Questions and quizzes help you retrieve ideas, not just reread them.</p></article>
+        <article><span>03</span><h3>A path you can follow</h3><p>Concrete next steps turn a broad ambition into manageable progress.</p></article>
+      </section>
+    </main>
+
+    <footer><a class="brand footer-brand" href="#top"><span class="brand-mark">✦</span> EduGenie</a><p>Built for curious minds.</p><a href="/docs">OpenAPI documentation ↗</a></footer>
+  </body>
+</html>

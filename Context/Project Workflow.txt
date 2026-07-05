@@ -1,0 +1,22 @@
+Epic 1. Model Selection and Architecture
+
+Story 1: Configure Gemini 1.5 Pro and LaMini-Flan-T5 models for question answering, summarization, quiz generation, learning recommendations, and concept explanation.
+
+Epic 2. Core Functionalities Development
+
+Story 1: Implement Explanation, QnA, Quiz, Summary, and Learning Path modules with AI-powered educational functionalities.
+
+Story 2: Create RESTful API endpoints and connect each endpoint with the respective module logic.
+
+Epic 3. Frontend Development
+
+Story 1: Develop a responsive frontend interface with task dropdowns, text input areas, submit buttons, and CSS styling.
+
+Story 2: Integrate frontend forms with FastAPI backend using POST requests and display real-time outputs.
+
+Epic 4. Deployment
+
+Story 1: Deploy and run the EduGenie application locally using Uvicorn and FastAPI.
+
+Story 2: Test all functionalities, including question answering, explanation generation, quiz generation, summarization, and personalized learning recommendations.
+

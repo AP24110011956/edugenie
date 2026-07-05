@@ -1,0 +1,6 @@
+# Optional local explanation model. Python 3.11 or 3.12 is recommended for
+# the broadest PyTorch wheel compatibility.
+torch>=2.4
+transformers>=4.48,<5.0
+sentencepiece>=0.2,<1.0
+

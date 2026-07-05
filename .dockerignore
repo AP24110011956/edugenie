@@ -1,0 +1,12 @@
+.env
+.git
+.github
+.venv
+Context
+tests
+scripts
+_site
+__pycache__
+*.pyc
+.DS_Store
+
