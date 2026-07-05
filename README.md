@@ -11,6 +11,11 @@ EduGenie is a FastAPI and Jinja2 learning application that provides:
 Gemini powers the cloud features. Explanations can optionally run locally with
 `MBZUAI/LaMini-Flan-T5-783M`.
 
+## Live application
+
+- Website: <https://ap24110011956.github.io/edugenie/>
+- API: <https://edugenie-api-spi6b42uoa-el.a.run.app/docs>
+
 ## Requirements
 
 - Python 3.10 or newer
